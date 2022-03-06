@@ -1,0 +1,56 @@
+<div class="form-signin-container bg-secondary">
+  <div class="form-signin">
+    <form action="/register" method="POST">
+      <h1 class="h3 mb-3 font-weight-normal text-center">Please Register</h1>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          placeholder="Name"
+          name="name"
+          required
+          autofocus
+        />
+      </div>
+      <div class="form-group">
+        <label for="inputEmail">Email address</label>
+        <input
+          type="email"
+          id="inputEmail"
+          class="form-control"
+          placeholder="Email address"
+          name="email"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input type="hidden" name="usertype" value="user" />
+        <label for="inputPassword">Password</label>
+        <input
+          type="password"
+          id="inputPassword"
+          class="form-control"
+          placeholder="Password"
+          name="password"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="reset" class="btn btn-danger">Reset</button>
+    </form>
+    <div class="row">
+      <div class="col-12 text-center mt-5"><a
+          href="/login"
+          class="text-decoration-none"
+        > Have an Account? Login </a>
+      </div>
+      <div class="col-12 text-center mt-2"><a
+          href="/"
+          class="text-decoration-none"
+        > Home </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,114 @@
+{{> usernav}}
+
+<div class="container-fluid">
+    <div class="row m-5 justify-content-center">
+        <div class="col-12 h3">
+            Manage Posts
+        </div>
+        <div class="col-12 mt-2">
+            <div class="row">
+                <div class="col-3 border-right">
+                    <div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home"
+                            role="tab" aria-controls="v-pills-home" aria-selected="true">Previous Posts</a>
+                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
+                            role="tab" aria-controls="v-pills-profile" aria-selected="false">New Post</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                            aria-labelledby="v-pills-home-tab">
+                            {{#if posts}}
+                            {{#each posts}}
+                            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                                <div class="card-header">
+                                    Posted On :
+                                    {{#if fb}}
+                                    <i class="fab fa-facebook"></i>
+                                    {{/if}}
+                                    {{#if twitter}}
+                                    <i class="fab fa-twitter"></i>
+                                    {{/if}}
+                                    {{#if ig}}
+                                    <i class="fab fa-instagram"></i>
+                                    {{/if}}
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">{{message}}</p>
+                                    <form action="/smp/delete" method="post">
+                                        <input type="hidden" name="postId" value="{{id}}">
+                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                            {{/each}}
+                            {{else}}
+                            You Have not posted anything.
+                            <br>
+                            Create a new post...
+                            {{/if}}
+
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                            aria-labelledby="v-pills-profile-tab">
+                            <form action="/smp/create" method="POST" enctype="multipart/form-data">
+                                <div class="form-row mb-2">
+                                    <div class="col-12 mb-2">Select Accounts</div>
+                                    <div class="col-4 form-check pl-4">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" name="fb" id="" value="fb">
+                                            Facebook
+                                        </label>
+                                    </div>
+                                    <div class="col-4 form-check pl-4">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" name="twitter" id=""
+                                                value="twitter">
+                                            Twitter
+                                        </label>
+                                    </div>
+                                    <div class="col-4 form-check pl-4">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" name="ig" id="" value="ig">
+                                            Instagram
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">want to Schedule for later?</label>
+                                    <input class="form-control w-50" type="datetime-local" name="time">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Message</label>
+                                    <textarea name="message" id="" class="form-control w-75" rows="5"
+                                        required></textarea>
+                                </div>
+                                <div class="form-check mb-5">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="addtocaption" id=""
+                                            value="addtocaption">
+                                        Add company Name and Website at the end of post.
+                                    </label>
+                                </div>
+                                <div class="custom-file mb-5 w-75">
+                                    <input type="file" class="custom-file-input" id="customFile" name="pic"
+                                        accept=".jpg" required>
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
+
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

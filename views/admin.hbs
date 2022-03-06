@@ -1,0 +1,38 @@
+{{> adminnav}}
+
+<div class="container-fluid">
+    <div class="row m-5 justify-content-center">
+        <div class="col-12 h3 mb-5">
+            Company Details
+        </div>
+
+        <table class="table lms_table_active3 dataTable no-footer dtr-inline">
+            <thead>
+                <tr role="row">
+                    <th scope="col" rowspan="1" colspan="1" style="width: 339px;">Image</th>
+                    <th scope="col" rowspan="1" colspan="1" style="width: 363px;">Name</th>
+                    <th scope="col" rowspan="1" colspan="1" style="width: 454px;">Website</th>
+                    <th scope="col" rowspan="1" colspan="1" style="width: 233px;">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#with company}}
+                <tr>
+                    <td>
+                        <img src="/companylogo/{{id}}.png" alt="" width="100px" class="border border-dark rounded p-3">
+                    </td>
+                    <td>
+                        {{name}}
+                    </td>
+                    <td>
+                        {{website}}
+                    </td>
+                    <td>
+                        <a href="/admin/editcompany" class="btn btn-primary">Edit Details</a>
+                    </td>
+                </tr>
+                {{/with}}
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+{{> adminnav}}
+
+<div class="container-fluid">
+    <div class="row m-5 shadow-box justify-content-center">
+        <div class="col-12 h3 text-center">
+            Add Company Details
+        </div>
+        <div class="col-12 h6 text-center">
+            (to Add Social Media Accounts and Users)
+        </div>
+        <div class="col-12 mt-2">
+            <hr>
+        </div>
+        <div class="col-lg-5 col-12 mt-2">
+            <form action="/admin/addcompany" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="">Name</label>
+                    <input type="text" name="name" id="" class="form-control" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Website</label>
+                    <input type="text" name="website" id="" class="form-control" placeholder="" required>
+                </div>
+                <div class="form-group mb-0">
+                    <label for="">Logo</label>
+                </div>
+                <div class="custom-file mb-5">
+                    <input type="file" class="custom-file-input" id="customFile" name="logo" accept=".png" required>
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

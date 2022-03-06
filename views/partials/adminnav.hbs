@@ -1,0 +1,56 @@
+<div class="content">
+
+  <nav
+    class="navbar navbar-expand-lg text-center justify-content-center navbar-dark bg-secondary"
+  >
+    <a class="navbar-brand" href="/">Admin | Dashboard</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav navbar-nav mr-auto order-0">
+        {{#ifCond user.comapanyId null}}{{else}}
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/admin/manageaccounts">Manage
+              Accounts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/admin/manageposts">Manage
+              Posts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/admin/manageusers">Manage
+              Users</a>
+          </li>
+        {{/ifCond}}
+      </ul>
+
+      <ul class="nav navbar-nav order-1">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/changepassword">Change Password</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">
+            <form action="/logout?_method=DELETE" method="POST">
+              <button
+                type="submit"
+                class="mr-2 d-lg-inline text-gray-600 bg-transparent border-0 text-white"
+              >Logout<i class="fa fa-power-off ml-2"></i></button>
+            </form>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+</div>

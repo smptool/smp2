@@ -1,0 +1,136 @@
+{{> adminnav}}
+
+<div class="container-fluid">
+    <div class="row m-5 justify-content-center">
+        <div class="col-12 h3">
+            Manage Accounts
+        </div>
+        <div class="col-12 mt-5">
+            <table class="table lms_table_active3 dataTable no-footer dtr-inline">
+            <thead>
+                <tr role="row">
+                    <th scope="col" rowspan="1" colspan="1" style="width: 339px;">Icon</th>
+                    <th scope="col" rowspan="1" colspan="1" style="width: 363px;">Platform</th>
+                    <th scope="col" rowspan="1" colspan="1" style="width: 454px;">Email</th>
+                    <th scope="col" rowspan="1" colspan="1" style="width: 233px;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <i class="fab fa-facebook"></i>
+                    </td>
+                    <td>
+                        Your facebook Account
+                    </td>
+                    <td>
+                        {{#if company.fb.email}}
+                    <div> <small class="h6">email: </small>{{company.fb.email}}</div>
+                    {{else}}
+                    <form action="/admin/add/fb" method="post">
+                        <div class="form-group">
+                            <label for="">email</label>
+                            <input type="text" name="email" id="" class="form-control" placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">page_id</label>
+                            <input type="text" name="page_id" id="" class="form-control" placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">access_token</label>
+                            <input type="text" name="access_token" id="" class="form-control" placeholder="" required>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                    {{/if}}
+                    </td>
+                    <td>
+                    {{#if company.fb.email}}
+                    <a href="/admin/del/fb" class="btn btn-danger">Delete</a>
+                    {{/if}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <i class="fab fa-twitter"></i>
+                    </td>
+                    <td>
+                        Your Twitter Account
+                    </td>
+                    <td>
+                        {{#if company.twitter.email}}
+                    <div> <small class="h6">email: </small>{{company.twitter.email}}</div>
+                    {{else}}
+                    <form action="/admin/add/twitter" method="post">
+                        <div class="form-group">
+                            <label for="">email</label>
+                            <input type="text" name="email" id="" class="form-control" placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">API_key</label>
+                            <input type="text" name="API_key" id="" class="form-control" placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">API_secret_key</label>
+                            <input type="text" name="API_secret_key" id="" class="form-control" placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Access_token</label>
+                            <input type="text" name="Access_token" id="" class="form-control" placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Access_token_secret</label>
+                            <input type="text" name="Access_token_secret" id="" class="form-control" placeholder=""
+                                required>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                    {{/if}}
+                    </td>
+                    <td>
+                    {{#if company.twitter.email}}
+                    <a href="/admin/del/twitter" class="btn btn-danger">Delete</a>
+                    {{/if}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <i class="fab fa-instagram"></i>
+                    </td>
+                    <td>
+                        Your instagram Account
+                    </td>
+                    <td>
+                        {{#if company.ig.email}}
+                    <div> <small class="h6">email: </small>{{company.ig.email}}</div>
+                    {{else}}
+                    <form action="/admin/add/ig" method="post">
+                        <div class="form-group">
+                            <label for="">email</label>
+                            <input type="text" name="email" id="" class="form-control" placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">password</label>
+                            <input type="text" name="password" id="" class="form-control" placeholder="" required>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                    {{/if}}
+                    </td>
+                    <td>
+                    {{#if company.ig.email}}
+                    <a href="/admin/del/ig" class="btn btn-danger">Delete</a>
+                    {{/if}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>

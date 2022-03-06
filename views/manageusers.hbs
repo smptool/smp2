@@ -1,0 +1,108 @@
+{{> adminnav}}
+
+<div class="container-fluid">
+    <div class="row m-5 justify-content-center">
+        <div class="col-12 h3">
+            Manage Users
+        </div>
+        <div class="col-12 mt-2">
+            <div class="">
+                <div class="">
+                    <div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home"
+                            role="tab" aria-controls="v-pills-home" aria-selected="true">Users List</a>
+                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
+                            role="tab" aria-controls="v-pills-profile" aria-selected="false">Add User</a>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-12">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                            aria-labelledby="v-pills-home-tab">
+                            {{#if allusers}}
+                            <table class="table table-bordered text-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Employee Number</th>
+                                        <th scope="col">Mobile</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    {{#each allusers}}
+                                    <tr>
+                                        <td>{{name}}</td>
+                                        <td>{{employeenumber}}</td>
+                                        <td>{{mobile}}</td>
+                                        <td>{{email}}</td>
+                                        <td>
+                                            {{#if isActive}}
+                                            <form action="/admin/updateuser" method="POST">
+                                                <input type="hidden" name="id" value="{{id}}">
+                                                <input type="hidden" name="isActive" value="false">
+                                                <button type="submit" class="btn btn-sm btn-warning">Deactivate</button>
+                                            </form>
+                                            {{else}}
+                                            <form action="/admin/updateuser" method="POST">
+                                                <input type="hidden" name="id" value="{{id}}">
+                                                <input type="hidden" name="isActive" value="true">
+                                                <button type="submit" class="btn btn-sm btn-success">Activate</button>
+                                            </form>
+                                            {{/if}}
+
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+
+                                </tbody>
+                            </table>
+                            {{else}}
+                            No user found <br> Add new user
+                            {{/if}}
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                            aria-labelledby="v-pills-profile-tab">
+                            <form action="/admin/adduser" method="post">
+                                <div class="form-group">
+                                    <label for="">Name</label>
+                                    <input type="text" name="name" id="" class="form-control" placeholder="" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-6">
+                                        <label for="">Employee Number</label>
+                                        <input type="text" name="employeenumber" id="" class="form-control"
+                                            placeholder="" required>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="">Mobile</label>
+                                        <input type="text" name="mobile" id="" class="form-control" placeholder=""
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Email</label>
+                                    <input type="text" name="email" id="" class="form-control" placeholder="" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Password</label>
+                                    <input type="text" name="password" id="" class="form-control" placeholder=""
+                                        required>
+                                </div>
+                                <input type="hidden" name="usertype" value="user">
+                                <input type="hidden" name="isActive" value="true">
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

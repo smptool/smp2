@@ -1,0 +1,41 @@
+{{> adminnav}}
+
+<div class="container-fluid">
+    <div class="row m-5 justify-content-center">
+        <div class="col-12 h3">
+            Edit Company Details
+        </div>
+        {{#with company}}
+        <div class="col-12">
+            <img src="/companylogo/{{id}}.png" alt="" width="100px" class="border border-dark rounded p-3">
+            <form action="/admin/editcompanypic" method="post" enctype="multipart/form-data">
+                <div class="custom-file mb-3 mt-3">
+                    <input type="file" class="custom-file-input" id="customFile" name="logo" accept=".png" required>
+                    <label class="custom-file-label" for="customFile">Choose new file</label>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-12 mt-2">
+            <form action="/admin/editcompany" method="post">
+                <div class="form-group">
+                    <label for="">Name</label>
+                    <input type="text" name="name" value="{{name}}" id="" class="form-control" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Website</label>
+                    <input type="text" name="website" value="{{website}}" id="" class="form-control" placeholder=""
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+            </form>
+        </div>
+        {{/with}}
+    </div>
+</div>
