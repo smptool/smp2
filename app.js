@@ -32,17 +32,15 @@ const users = [];
 
 var app = express();
 
-// const uri =
-//   "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000";
-
 const uri =
-  "mongodb+srv://root:socialmedia@12@cluster0.yubl0.mongodb.net/socialmediamanager?retryWrites=true&w=majority";
+  "mongodb+srv://root:nubM9mbqN9BrPrO8@cluster0.yubl0.mongodb.net/Cluster0?retryWrites=true&w=majority";
 
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
-});
+}).then(() => console.log('MongoDB connected...'))
+  .catch(err => console.log(err));
 
 mongoose.connection.on("connected", () => {
   try {
